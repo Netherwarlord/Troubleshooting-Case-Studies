@@ -55,13 +55,23 @@ Test 2 (scutil --dns): This macOS command revealed the client was still using th
 
 Conclusion: ❌ The ISP-provided router was failing to properly assign the custom DNS server via DHCP, or the client was ignoring it.
 
-Step E: ✅ Final Resolution
+Step E: ✅ Final Resolution (Client-Side)
 
 Since the router's DHCP service was unreliable, the fix had to be applied directly to the client.
 
-Action: The Pi-hole server's IP address (192.168.1.27) was manually added to the list of DNS servers in the MacBook's network settings.
+Action: The Pi-hole server's IP address (e.g., 192.168.1.100) was manually added to the list of DNS servers in the MacBook's network settings.
 
-Result: After flushing the local DNS cache, ping immediately resolved to the correct local IP. The browser was able to connect without an SSL certificate mismatch, and the Grafana panels rendered correctly on GitHub.
+Result: After flushing the local DNS cache, ping immediately resolved to the correct local IP. The browser was able to connect without an SSL certificate mismatch.
+
+Step F: Final Polish (Implementing a Dedicated Rendering Service)
+
+After resolving the DNS issue, it was observed that while simple charts rendered correctly on GitHub, the more complex gauge panels still failed to load.
+
+Symptom: Gauges appeared as broken images, while charts loaded successfully.
+
+Root Cause: Grafana's built-in image rendering capabilities are limited. Complex visualizations, especially those with dynamic thresholds and text like gauges, require a dedicated headless browser instance to render correctly as PNGs.
+
+Resolution: The official Grafana Image Renderer plugin was deployed as a separate Docker container, and the main Grafana instance was configured to use it. This provided robust, high-quality image rendering for all panel types, finally resolving the display issue on GitHub.
 
 3. Skills & Technologies Demonstrated
 
@@ -81,7 +91,7 @@ Split-Brain DNS, NAT Loopback, DNS Caching, DHCP Lease & DNS Assignment
 
 Docker & Containerization
 
-Docker Compose, Volume Mapping, Networking, Service Deployment
+Docker Compose, Volume Mapping, Networking, Service Deployment, Plugins
 
 Linux Systems Administration
 
