@@ -1,7 +1,7 @@
 <div align="center">
 
 # Case Study: DNS Resolution in a Homelab Environment
-A deep-dive into diagnosing and resolving a complex, multi-layered networking issue.
+## A deep-dive into diagnosing and resolving a complex, multi-layered networking issue.
 </div>
 
 1. Problem Statement & Initial Symptom
