@@ -1,4 +1,5 @@
-Case Study: Systemic Server Failure & Resolution
+# Case Study: Systemic Server Failure & Resolution
+
 Author: Christopher Clendening (Netherwarlord)
 Date: July 28, 2025
 Tags: Nginx, SSL, Docker, LetsEncrypt, Linux, Networking, DNS, NAT, Penpot, Mailcow, System Administration, Troubleshooting
