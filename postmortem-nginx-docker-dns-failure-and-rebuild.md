@@ -2,7 +2,7 @@
 
 * Author: Christopher Clendening (Netherwarlord)
 * Date: July 28, 2025
-  Tags: Nginx, SSL, Docker, LetsEncrypt, Linux, Networking, DNS, NAT, Penpot, Mailcow, System Administration, Troubleshooting
+* Tags: Nginx, SSL, Docker, LetsEncrypt, Linux, Networking, DNS, NAT, Penpot, Mailcow, System Administration, Troubleshooting
 
 1. Executive Summary
 
